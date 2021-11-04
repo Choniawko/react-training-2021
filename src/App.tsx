@@ -1,8 +1,12 @@
-import "./App.css";
-import { Title } from "./App.css";
+import { Container } from "./App.css";
+import { BookDetails } from "./book/components/BookDetails/BookDetails";
 
 const App = () => {
-  return <Title>Hello World!</Title>;
+  return (
+    <Container role='main'>
+      <BookDetails />
+    </Container>
+  );
 };
 
 export default App;
