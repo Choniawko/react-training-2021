@@ -1,10 +1,10 @@
 import { Container } from "./App.css";
-import { BookDetails } from "./book/components/BookDetails/BookDetails";
+import { BookOverview } from "./book/components/BookOverview/BookOverview";
 
 const App = () => {
   return (
     <Container role='main'>
-      <BookDetails />
+      <BookOverview />
     </Container>
   );
 };

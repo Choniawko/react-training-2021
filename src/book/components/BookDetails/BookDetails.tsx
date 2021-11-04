@@ -1,36 +1,32 @@
-import { useState } from "react";
+import { Book } from "../../book";
 import { Label } from "./BookDetails.css";
 
-export const BookDetails = () => {
-  const [currentBook] = useState({
-    id: 1,
-    title: "Example Book",
-    authors: "John Example",
-  });
-  return (
-    <div className='container'>
-      <form>
-        <div className='form-group row'>
-          <Label className='col-sm-2 col-form-Label' htmlFor='authors'>
-            Authors:
-          </Label>
-          <div className='col-sm-10'>
-            <p className='form-control-plaintext' id='authors'>
-              {currentBook.authors}
-            </p>
-          </div>
+export interface Props {
+  book: Book;
+}
+export const BookDetails = (props: Props) => (
+  <div>
+    <form>
+      <div className='form-group row'>
+        <Label htmlFor='authors' className='col-sm-3 col-form-label'>
+          Authors:
+        </Label>
+        <div className='col-sm-9'>
+          <p className='form-control-plaintext' id='authors'>
+            {props.book.authors}
+          </p>
         </div>
-        <div className='form-group row'>
-          <Label className='col-sm-2 col-form-Label' htmlFor='title'>
-            Title:
-          </Label>
-          <div className='col-sm-10'>
-            <p className='form-control-plaintext' aria-label='title' id='title'>
-              {currentBook.title}
-            </p>
-          </div>
+      </div>
+      <div className='form-group row'>
+        <Label htmlFor='title' className='col-sm-3 col-form-label'>
+          Title:
+        </Label>
+        <div className='col-sm-9'>
+          <p className='form-control-plaintext' id='title'>
+            {props.book.title}
+          </p>
         </div>
-      </form>
-    </div>
-  );
-};
+      </div>
+    </form>
+  </div>
+);
