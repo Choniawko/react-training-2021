@@ -1,24 +1,15 @@
 import { useEffect, useState } from "react";
 import { Book } from "../../book";
+import { useBookService } from "../../services/bookService/BookContext";
 import { BookDetails } from "../BookDetails/BookDetails";
 
 export const BookOverview = () => {
+  const { findAll } = useBookService();
   const [books, setBooks] = useState<Book[]>([]);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   useEffect(() => {
-    setBooks([
-      {
-        id: 1,
-        authors: "John Example",
-        title: "Example Book",
-      },
-      {
-        id: 2,
-        authors: "Joe Smith",
-        title: "Another Book",
-      },
-    ]);
+    setBooks(findAll());
   }, []);
   const selectBook = (book: Book): void => {
     setSelectedBook(book);
